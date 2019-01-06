@@ -1,0 +1,45 @@
+<div ng-controller="cartViewController">
+    <table id="cart">
+        <th>
+            <td>
+                Item Name
+            </td>
+            <td>
+                Item Rate
+            </td>
+            <td>
+                Item Quantity
+            </td>
+            <td>
+                Item Price
+            </td>
+        </th>
+        <tr ng-repeat="item in items">
+            <td>
+                {{item.name}}
+            </td>
+            <td>
+                {{item.price}}
+            </td>
+            <td>
+                {{item.quant}}
+            </td>
+            <td>
+                {{item.totalPrice}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Total
+            </td>
+            <td colspan="3">
+                ${{totalPrice}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <button value="checkout" ng-click="checkout()">Checkout</button>
+            </td>
+        </tr>
+    </table>
+</div>

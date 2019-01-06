@@ -1,0 +1,43 @@
+{
+    "error":{
+        "code":100,
+        "description" :"some error occured"
+    },
+    "ok" :{
+        "code" : 200,
+        "description" : "success"
+    } ,
+    "created" :{
+        "code" : 201,
+        "description" : "record created"
+    },
+    "accepted" : {
+        "code" : 202,
+        "description" : "password accepted"
+    },
+    "partial_content" : {
+        "code" : 206,
+        "description" : "error: missing data"
+    },
+    "unauthorized" : {
+        "code" : 401,
+        "description" : "password incorrect"
+    },
+    "payment_required" : {
+        "code" : 402,
+        "description" : "error: payment required"
+    },
+    "forbidden" : {
+        "code" : 403,
+        "description" : "error: you do not have access to this page"
+    },
+    "not_found" : {
+        "code" : 404,
+        "description" : "error: cannot find record"
+    },
+    "conflict" : {
+        "code" : 409,
+        "description" : "error: user already exists"
+    }
+}
+

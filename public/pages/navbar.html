@@ -1,0 +1,62 @@
+<nav class="navbar navbar-inverse" role="navigation" ng-controller="navBarController">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="./index.html">Restaurant</a>
+  </div>
+  <ul class="nav navbar-nav navbar-left">
+    <li><a href="menu.html">Contact</a></li>
+    <li><a href="index.html#page2">Services</a></li>
+    <li><a href="index.html#page3">Contact</a></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Cart
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div id="cart" ng-controller="cartViewController">
+            <table id = "cart"class="table">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>Items</th>
+                  <th>Rate</th>
+                  <th>Quantity</th>
+                  <th>Sub Total</th>
+                </tr>
+              </thead>
+              <tr ng-repeat="item in items">
+                <td>
+                  {{item.name}}
+                </td>
+                <td>
+                  {{item.price}}
+                </td>
+                <td>
+                  {{item.quant}}
+                </td>
+                <td>
+                  {{item.totalPrice}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Total
+                </td>
+                <td colspan="3">
+                  ${{totalPrice}}
+                </td>
+              </tr>
+              <tr>
+                <td colspan="4">
+                  <button value="checkout" ng-click="checkout()">Checkout</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li><a class="active" href="login.html">{{currentUser}}</a></li>
+  </ul>
+</nav>

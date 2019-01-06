@@ -1,0 +1,34 @@
+.menuItemTitle {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    color: lightcoral;
+}
+
+html,
+body {
+    text-transform: capitalize;
+    max-width: 100%;
+}
+
+body {
+    margin: 50px 0;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+}
+
+.card-deck {
+    background-color: lightgray;
+    float: left;
+    margin: 20px 20px;
+}
+
+tr {
+    color: gray;
+}

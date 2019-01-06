@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base href="/">
+  <title>Menu</title>
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/angular.js"></script>
+  <script src="javascripts/angular-resource.js"></script>
+  <script src="javascripts/angular-route.js"></script>
+  <script src="javascripts/angular-ui-route.js"></script>
+  <script src="javascripts/menu.js"></script>
+  <script src="javascripts/bootstrap.js"></script>
+  <link rel="stylesheet" href="stylesheets/bootstrap.css">
+  <link rel="stylesheet" href="stylesheets/bootstrap-theme.css">
+  <link rel="stylesheet" href="stylesheets/bootstrap.css.map">
+  <link rel="stylesheet" href="stylesheets/bootstrap-theme.css.map">
+  <link rel="stylesheet" href="stylesheets/menu.css">
+
+</head>
+
+<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation" ng-controller="navBarController">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">Restaurant</a>
+            </div>
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="index.html#page2">Services</a></li>
+                <li><a href="index.html#page3">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li> 
+                    <div class="dropdown container-fluid">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"><img src="./images/cart.png" style="height:'30px';width:30px;"/>
+        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div id="cart" ng-controller="cartViewController">
+                                <table id="cart" class="table">
+                                    <thead class="thead-inverse">
+                                        <tr>
+                                            <th>Items</th>
+                                            <th>Rate</th>
+                                            <th>Quantity</th>
+                                            <th>Sub Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tr ng-repeat="item in items">
+                                        <td>
+                                            {{item.name}}
+                                        </td>
+                                        <td>
+                                            {{item.price}}
+                                        </td>
+                                        <td>
+                                            {{item.quant}}
+                                        </td>
+                                        <td>
+                                            {{item.totalPrice}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Total
+                                        </td>
+                                        <td colspan="3">
+                                            ${{totalPrice}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <button value="checkout" ng-click="checkout()" >Checkout</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a class="active" href="login.html">{{currentUser}}</a></li>
+                <li><a class="active" href="" ng-click="signOutIfPossible()">{{signOutStatus}}</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+<body ng-app="application">
+  <div ng-controller="startersViewController" class="container-fluid">
+    <h3 class="menuItemTitle">starters</h3>
+    <div class="card-deck text-center" style="width:400px;" ng-repeat="item in items">
+      <img class="card-img-top" ng-src="{{item.imagePath}}" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{item.name}}</h4>
+        <p class="card-text">{{item.description}}</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{item.cost}}</li>
+          <li class="list-group-item">{{item.type}}</li>
+          <li class="list-group-item">{{item.availablity}}</li>
+        </ul>
+        <button ng-click="addToCart(item,1)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  <div ng-controller="mainCourseViewController" class="container-fluid">
+    <h3 class="menuItemTitle">main course</h3>
+    <div class="card-deck text-center" style="width:400px;" ng-repeat="item in items">
+      <img class="card-img-top" ng-src="{{item.imagePath}}" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{item.name}}</h4>
+        <p class="card-text">{{item.description}}</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{item.cost}}</li>
+          <li class="list-group-item">{{item.type}}</li>
+          <li class="list-group-item">{{item.availablity}}</li>
+        </ul>
+        <button ng-click="addToCart(item,1)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  <div ng-controller="drinksViewController" class="container-fluid">
+    <h3 class="menuItemTitle">drinks</h3>
+    <div class="card-deck text-center" style="width:400px;" ng-repeat="item in items">
+      <img class="card-img-top" ng-src="{{item.imagePath}}" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{item.name}}</h4>
+        <p class="card-text">{{item.description}}</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{item.cost}}</li>
+          <li class="list-group-item">{{item.type}}</li>
+          <li class="list-group-item">{{item.availablity}}</li>
+        </ul>
+        <button ng-click="addToCart(item,1)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div ng-controller="dessertsViewController" class="container-fluid">
+    <h3 class="menuItemTitle">desserts</h3>
+    <div class="card-deck text-center" style="width:400px;" ng-repeat="item in items">
+      <img class="card-img-top" ng-src="{{item.imagePath}}" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{item.name}}</h4>
+        <p class="card-text">{{item.description}}</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{item.cost}}</li>
+          <li class="list-group-item">{{item.type}}</li>
+          <li class="list-group-item">{{item.availablity}}</li>
+        </ul>
+        <button ng-click="addToCart(item,1)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

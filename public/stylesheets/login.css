@@ -1,0 +1,51 @@
+body{
+    width:100%;
+     background: #76b852; /* fallback for old browsers */
+    background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+    background: -moz-linear-gradient(right, #76b852, #8DC26F);
+    background: -o-linear-gradient(right, #76b852, #8DC26F);
+    background: linear-gradient(to left, #76b852, #8DC26F);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.loginForm{
+    position: relative;
+    z-index: 1;
+    min-width: 360px;
+    max-width: 500px;
+    margin: 60px auto;
+    background-color:bisque;
+    padding: 5px;
+}
+.usernameText,.passwordText,.nameText,.phoneText,.addressText,.emailText{
+  color: black;
+}
+
+#newUserForm{
+  display: none;
+}
+
+#formHolder{
+  color:black;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+form {
+  display: block;
+  position: relative;
+  z-index: 1;
+  background:lightslategray;
+  min-width: 360px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+
+body{
+    margin: 50px 0;
+}
